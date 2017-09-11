@@ -113,7 +113,7 @@ def is_prime(possible_prime):
             return False
         else:
             return True
-        k += 1
+        count += 1
 
     # return True  # and here ...
 
