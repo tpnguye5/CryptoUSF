@@ -66,7 +66,7 @@ def is_prime(possible_prime):
     #If witness is not %2:
         #make odd
         #witness += 1
-    #if not rabin-miller(pp,t):
+    #if not rabin-miller(pp,witness):
     #return false
 
 
@@ -99,22 +99,21 @@ def is_prime(possible_prime):
 
     count = 0;
 
-    for witness in range(list):
-        if witness <= 1:  # if pp is negative
-            return False
-        elif witness <= 3:
-            return True
-        elif witness % 2 == 0 or witness % 3 == 0:
-            return True
-        elif witness % 2 != 0 or witness % 3 != 0:
-            witness += 1 #make odd
-
-        while (count <= k):
-            if not rabin_miller(witness, k):
+    while (count <= k):
+        for witness in range(list):
+            if witness <= 1:  # if pp is negative
                 return False
-            else:
+            elif witness <= 3:
                 return True
-            k += 1
+            elif witness % 2 == 0 or witness % 3 == 0:
+                return True
+            elif witness % 2 != 0 or witness % 3 != 0:
+                witness += 1  # make odd
+        if not rabin_miller(possible_prime, witness):
+            return False
+        else:
+            return True
+        k += 1
 
     # return True  # and here ...
 
