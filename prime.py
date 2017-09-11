@@ -100,8 +100,8 @@ def is_prime(possible_prime):
     count = 0;
 
     while (count <= k):
-        for witness in range(list):
-            if witness <= 1:  # if pp is negative
+        for witness in list:
+            if witness <= 1:  # if witness is negative
                 return False
             elif witness <= 3:
                 return True
@@ -141,7 +141,7 @@ def int_to_string(long_int, padto=None):
 
 def string_to_int(octet_string):
     """ Convert a string of bytes into an integer, as per X9.62. """
-    long_int = 0
+    long_int = 0L
     for c in octet_string:
         long_int = 256 * long_int + ord(c)
     return long_int
